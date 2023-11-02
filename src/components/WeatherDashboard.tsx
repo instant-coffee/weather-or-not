@@ -2,7 +2,8 @@
 // like componentDidMount which is ideal for fetching data on initial render. 
 // Functional components with useEffect can be used for simpler UI components within the app.
 
-import React, { Component } from 'react';
+import { Component } from 'react';
+import { WeatherChip } from './WeatherChip';
 
 interface State {
     cities: City[];
@@ -22,7 +23,7 @@ export class WeatherDashboard extends Component<Record<string, never>, State> {
     constructor(props: Record<string, never>) {
         super(props);
         this.state = {
-            cities: [{name: 'Toronto', lat: "33.44", lon: "94.04"}],
+            cities: [{name: 'Toronto', lat: "43.6532", lon: "-79.3832"}],
             units: 'metric',
             weatherData: [],
             loading: true
@@ -38,14 +39,14 @@ export class WeatherDashboard extends Component<Record<string, never>, State> {
 
     fetchWeatherData = async (city: City, unit: string): Promise<any> => {
         const resonse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${process.env.WEATHER_API_KEY}&units=${unit}`)
-        console.log("🚀 ~ file: WeatherDashboard.tsx:35 ~ WeatherDashboard ~ fetchWeatherData= ~ resonse:", resonse)
         return await resonse.json()
     }
+
 
     render() {
         return (
             <div className='flex flex-col'>
-                <h1>SANITY</h1>
+                {this.state.loading ? <h1>Loading...</h1> : <WeatherChip title='today' weatherData={this.state.weatherData[0]} />}
             </div>
         );
     }
