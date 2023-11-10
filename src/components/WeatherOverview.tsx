@@ -13,7 +13,7 @@ type WeatherOverviewProps = {
   nextDaysWeather: WeatherDataType[]
 }
 
-const WeatherOverview: React.FC<WeatherOverviewProps> = ({ todayWeather, nextDaysWeather }) => {
+const WeatherOverview: React.FC<WeatherOverviewProps> = ({ todayWeather }) => {
     return (
         <div className={styles.mainContainer}>
           {/* Today's weather */}
@@ -22,7 +22,7 @@ const WeatherOverview: React.FC<WeatherOverviewProps> = ({ todayWeather, nextDay
           </div>
     
           {/* Next 4 days weather */}
-          <div className={styles.bottomSection}>
+          {/* <div className={styles.bottomSection}>
             {nextDaysWeather.map((weatherData, index) => {
               const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
               const date = new Date();
@@ -33,7 +33,7 @@ const WeatherOverview: React.FC<WeatherOverviewProps> = ({ todayWeather, nextDay
                 <WeatherChip key={index} weatherData={weatherData} title={dayName} size="compact" />
               );
             })}
-          </div>
+          </div> */}
         </div>
       );
     }

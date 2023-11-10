@@ -1,0 +1,22 @@
+@import '../index.less';
+
+.navContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem 1rem;
+}
+
+.navItem {
+  font-size: 1.75rem;
+
+  &.navItem:hover {
+    color: #646cff;
+    text-decoration: inherit;
+  }
+
+  &.selected {
+    font-weight: 600;
+    color: @selectedCityColor;
+  }
+}

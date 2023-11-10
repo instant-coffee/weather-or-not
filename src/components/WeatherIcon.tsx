@@ -42,7 +42,7 @@ class WeatherIcon extends React.Component<Props> {
             classNameProps = styles.iconStrokeLarge
             break
         case 'medium':
-            iconSize = '4x'
+            iconSize = '5x'
             classNameProps = styles.iconStrokeMedium    
             break;
         default:
