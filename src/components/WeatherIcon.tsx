@@ -3,14 +3,16 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faCloudRain, faSnowflake, faCloud } from '@fortawesome/free-solid-svg-icons'
-import styles from '../styles/WeatherFull.module.less'
+import styles from '../styles/weatherFull.module.less'
 
-interface Props {
+
+type IconSize = '1x' | '5x' | '9x' | '10x';
+interface IIconProps {
   weather: string
   size: string
 }
 
-class WeatherIcon extends React.Component<Props> {
+class WeatherIcon extends React.Component<IIconProps> {
   render() {
     const { weather, size } = this.props
 
@@ -35,7 +37,7 @@ class WeatherIcon extends React.Component<Props> {
         break
     }
 
-    let iconSize
+   let iconSize
     switch (size) {
         case 'large':
             iconSize = '9x'
@@ -50,7 +52,7 @@ class WeatherIcon extends React.Component<Props> {
             break;
     }
 
-    return <FontAwesomeIcon icon={icon} size={iconSize} className={classNameProps} />
+    return <FontAwesomeIcon icon={icon} size={iconSize as IconSize} className={classNameProps} />
   }
 }
 
